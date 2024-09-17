@@ -235,11 +235,11 @@ def open_sequence():
 
     global dir_, file, img, image, allitems, sequence
     if dir_img := filedialog.askdirectory():
-        allitems = glob.glob(dir_img+'\*.png')
-        allitems.extend(glob.glob(dir_img+'\*.jpeg'))
-        allitems.extend(glob.glob(dir_img+'\*.jpg'))
-        allitems.extend(glob.glob(dir_img+'\*.bmp'))
-        allitems.extend(glob.glob(dir_img+'\*.webp'))
+        allitems = glob.glob(os.path.join(dir_img, '*.png'))
+        allitems.extend(glob.glob(os.path.join(dir_img, '*.jpeg')))
+        allitems.extend(glob.glob(os.path.join(dir_img, '*.jpg')))
+        allitems.extend(glob.glob(os.path.join(dir_img, '*.bmp')))
+        allitems.extend(glob.glob(os.path.join(dir_img, '*.webp')))
 
         if len(allitems) == 0:
             tk.messagebox.showinfo("Oops!", "No valid image files present in this folder!")
